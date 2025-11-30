@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predict NBA game outcomes using machine learning. Get instant win probabilities for any matchup.">
+    <meta name="keywords" content="NBA, prediction, machine learning, basketball, game predictor">
+    <title>🏀 NBA Game Predictor - ML-Powered Win Predictions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-gradient"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="basketball-icon">🏀</div>
+                    <h1 class="title">NBA Game Predictor</h1>
+                </div>
+                <p class="subtitle">Powered by Machine Learning</p>
+            </div>
+        </header>
+
+        <!-- Main Card -->
+        <main class="main-card glass-effect">
+            <div class="card-header">
+                <h2>Predict Game Outcome</h2>
+                <p>Select two teams and see who's likely to win</p>
+            </div>
+
+            <!-- Prediction Form -->
+            <form id="predictionForm" class="prediction-form">
+                <!-- Team 1 Selection -->
+                <div class="form-group">
+                    <label for="team1" class="form-label">
+                        <span class="label-icon">🏠</span>
+                        Team 1
+                    </label>
+                    <div class="select-wrapper">
+                        <select id="team1" name="team1" required>
+                            <option value="">Select team...</option>
+                        </select>
+                        <div class="select-arrow">▼</div>
+                    </div>
+                </div>
+
+                <!-- VS Divider -->
+                <div class="vs-container">
+                    <div class="vs-circle">VS</div>
+                </div>
+
+                <!-- Team 2 Selection -->
+                <div class="form-group">
+                    <label for="team2" class="form-label">
+                        <span class="label-icon">✈️</span>
+                        Team 2
+                    </label>
+                    <div class="select-wrapper">
+                        <select id="team2" name="team2" required>
+                            <option value="">Select team...</option>
+                        </select>
+                        <div class="select-arrow">▼</div>
+                    </div>
+                </div>
+
+                <!-- Home Team Selection -->
+                <div class="form-group home-selection">
+                    <label class="form-label">
+                        <span class="label-icon">🏟️</span>
+                        Home Court
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="homeTeam" value="team1" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Team 1</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="homeTeam" value="team2">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Team 2</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="predict-btn">
+                    <span class="btn-icon">🔮</span>
+                    <span class="btn-text">Predict Game</span>
+                    <div class="btn-shine"></div>
+                </button>
+            </form>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message hidden">
+                <span class="error-icon">⚠️</span>
+                <span id="errorText"></span>
+            </div>
+        </main>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="results-section hidden">
+            <div class="results-card glass-effect">
+                <div class="results-header">
+                    <h2>Prediction Results</h2>
+                    <div class="confidence-badge" id="confidenceBadge">
+                        <span class="badge-label">Confidence</span>
+                        <span class="badge-value" id="confidenceValue">--</span>
+                    </div>
+                </div>
+
+                <!-- Team Results -->
+                <div class="team-results">
+                    <!-- Team 1 Result -->
+                    <div class="team-result" id="team1Result">
+                        <div class="team-header">
+                            <h3 class="team-name" id="team1Name">Team 1</h3>
+                            <div class="team-badge" id="team1Badge"></div>
+                        </div>
+                        <div class="probability-container">
+                            <div class="probability-label">Win Probability</div>
+                            <div class="probability-value" id="team1Probability">0%</div>
+                            <div class="probability-bar">
+                                <div class="probability-fill" id="team1Bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="team-stats" id="team1Stats"></div>
+                    </div>
+
+                    <!-- Team 2 Result -->
+                    <div class="team-result" id="team2Result">
+                        <div class="team-header">
+                            <h3 class="team-name" id="team2Name">Team 2</h3>
+                            <div class="team-badge" id="team2Badge"></div>
+                        </div>
+                        <div class="probability-container">
+                            <div class="probability-label">Win Probability</div>
+                            <div class="probability-value" id="team2Probability">0%</div>
+                            <div class="probability-bar">
+                                <div class="probability-fill" id="team2Bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="team-stats" id="team2Stats"></div>
+                    </div>
+                </div>
+
+                <!-- Winner Banner -->
+                <div class="winner-banner" id="winnerBanner">
+                    <div class="trophy-icon">🏆</div>
+                    <div class="winner-text">
+                        <span class="winner-label">Predicted Winner</span>
+                        <span class="winner-name" id="winnerName">---</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Info Section -->
+        <section class="info-section">
+            <div class="info-card glass-effect">
+                <h3>About the Model</h3>
+                <p>This predictor uses machine learning (Random Forest & Logistic Regression) trained on 1000+ NBA games with 20+ statistical features including:</p>
+                <div class="features-grid">
+                    <div class="feature-item">📊 Points & Shooting %</div>
+                    <div class="feature-item">🏀 Rebounds & Assists</div>
+                    <div class="feature-item">🔥 Win Streak</div>
+                    <div class="feature-item">🏟️ Home Court Advantage</div>
+                </div>
+                <div class="accuracy-display">
+                    <span class="accuracy-label">Model Accuracy:</span>
+                    <span class="accuracy-value">~70-75%</span>
+                </div>
+            </div>
+
+            <!-- Visualizations -->
+            <div class="viz-card glass-effect">
+                <h3>Model Performance</h3>
+                <div class="viz-carousel">
+                    <div class="viz-item active">
+                        <img src="model_comparison.png" alt="Model Accuracy Comparison" class="viz-image">
+                        <p class="viz-caption">Model Accuracy Comparison</p>
+                    </div>
+                    <div class="viz-item">
+                        <img src="feature_importance.png" alt="Feature Importance" class="viz-image">
+                        <p class="viz-caption">Top 10 Most Important Features</p>
+                    </div>
+                    <div class="viz-item">
+                        <img src="confusion_matrices.png" alt="Confusion Matrices" class="viz-image">
+                        <p class="viz-caption">Model Confusion Matrices</p>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🏀 Built with Machine Learning & Basketball Love</p>
+            <p class="disclaimer">For educational purposes only. Not for gambling.</p>
+            <div class="footer-links">
+                <a href="https://github.com/ammarjmahmood/Machine-Learning-NBA-Game-Predictor" target="_blank" rel="noopener">
+                    View on GitHub
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
