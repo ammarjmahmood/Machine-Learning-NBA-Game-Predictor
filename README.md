@@ -2,6 +2,12 @@
 
 An advanced machine learning system that predicts NBA game outcomes using real-time team statistics and historical data. Features a beautiful, modern web interface for instant game predictions.
 
+## 🎨 Web Interface
+
+![NBA Game Predictor UI](UI.png)
+
+## 📊 Model Performance
+
 ![Model Comparison](model_comparison.png)
 
 ## 🌟 Features
