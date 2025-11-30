@@ -2,6 +2,8 @@
 
 An advanced machine learning system that predicts NBA game outcomes using real-time team statistics and historical data. Features a beautiful, modern web interface for instant game predictions.
 
+TRY IT HERE: https://machine-learning-nba-game-predictor-qfl25ubd8.vercel.app/
+
 ## 🎨 Web Interface
 
 ![NBA Game Predictor UI](UI.png)
