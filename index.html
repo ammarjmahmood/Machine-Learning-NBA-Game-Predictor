@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Predict NBA game outcomes using machine learning. Get instant win probabilities for any matchup.">
+    <meta name="description"
+        content="Predict NBA game outcomes using machine learning. Get instant win probabilities for any matchup.">
     <meta name="keywords" content="NBA, prediction, machine learning, basketball, game predictor">
     <title>🏀 NBA Game Predictor - ML-Powered Win Predictions</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Animated Background -->
     <div class="background-gradient"></div>
-    
+
     <!-- Main Container -->
     <div class="container">
         <!-- Header -->
@@ -41,36 +46,39 @@
 
             <!-- Prediction Form -->
             <form id="predictionForm" class="prediction-form">
-                <!-- Team 1 Selection -->
-                <div class="form-group">
-                    <label for="team1" class="form-label">
-                        <span class="label-icon">🏠</span>
-                        Team 1
-                    </label>
-                    <div class="select-wrapper">
-                        <select id="team1" name="team1" required>
-                            <option value="">Select team...</option>
-                        </select>
-                        <div class="select-arrow">▼</div>
+                <!-- Team Selection Grid -->
+                <div class="team-selection-grid">
+                    <!-- Team 1 Selection -->
+                    <div class="form-group">
+                        <label for="team1" class="form-label">
+                            <span class="label-icon">�</span>
+                            Team 1
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="team1" name="team1" required>
+                                <option value="">Select team...</option>
+                            </select>
+                            <div class="select-arrow">▼</div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- VS Divider -->
-                <div class="vs-container">
-                    <div class="vs-circle">VS</div>
-                </div>
+                    <!-- VS Divider -->
+                    <div class="vs-container">
+                        <div class="vs-circle">VS</div>
+                    </div>
 
-                <!-- Team 2 Selection -->
-                <div class="form-group">
-                    <label for="team2" class="form-label">
-                        <span class="label-icon">✈️</span>
-                        Team 2
-                    </label>
-                    <div class="select-wrapper">
-                        <select id="team2" name="team2" required>
-                            <option value="">Select team...</option>
-                        </select>
-                        <div class="select-arrow">▼</div>
+                    <!-- Team 2 Selection -->
+                    <div class="form-group">
+                        <label for="team2" class="form-label">
+                            <span class="label-icon">🏀</span>
+                            Team 2
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="team2" name="team2" required>
+                                <option value="">Select team...</option>
+                            </select>
+                            <div class="select-arrow">▼</div>
+                        </div>
                     </div>
                 </div>
 
@@ -170,7 +178,8 @@
         <section class="info-section">
             <div class="info-card glass-effect">
                 <h3>About the Model</h3>
-                <p>This predictor uses machine learning (Random Forest & Logistic Regression) trained on 1000+ NBA games with 20+ statistical features including:</p>
+                <p>This predictor uses machine learning (Random Forest & Logistic Regression) trained on 1000+ NBA games
+                    with 20+ statistical features including:</p>
                 <div class="features-grid">
                     <div class="feature-item">📊 Points & Shooting %</div>
                     <div class="feature-item">🏀 Rebounds & Assists</div>
@@ -213,7 +222,8 @@
             <p>🏀 Built with Machine Learning & Basketball Love</p>
             <p class="disclaimer">For educational purposes only. Not for gambling.</p>
             <div class="footer-links">
-                <a href="https://github.com/ammarjmahmood/Machine-Learning-NBA-Game-Predictor" target="_blank" rel="noopener">
+                <a href="https://github.com/ammarjmahmood/Machine-Learning-NBA-Game-Predictor" target="_blank"
+                    rel="noopener">
                     View on GitHub
                 </a>
             </div>
@@ -223,4 +233,5 @@
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>
